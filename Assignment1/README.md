@@ -225,13 +225,7 @@ X = sm.add_constant(x)
 
 The residual standard deviation is calculated as
 
-$$
-\hat{\sigma}
-=
-\sqrt{
-\frac{\mathrm{RSS}}{n-2}
-}.
-$$
+$$\boxed{\hat{\sigma}=\sqrt{\frac{\mathrm{RSS}}{n-2}}}$$
 
 The denominator is $n-2$ because two regression coefficients, $\alpha$ and $\beta$, are estimated.
 
