@@ -321,22 +321,11 @@ estimated parameters.
 
 The models are compared using
 
-$$
-\mathrm{AIC}
-=
-2k - 2\log L
-$$
+$$\mathrm{AIC}=2k-2\log L$$
 
 and
 
-$$
-\mathrm{AICc}
-=
-\mathrm{AIC}
-+
-\frac{2k(k+1)}
-{n-k-1}.
-$$
+$$\mathrm{AICc}=\mathrm{AIC}+\frac{2k(k+1)}{n-k-1}.$$
 
 The parameter count includes the regression coefficients and the error-scale parameter.
 
@@ -420,13 +409,7 @@ Spearman correlation measures monotonic association using ranks.
 
 The reported difference is
 
-$$
-\left|
-\rho_{\mathrm{Pearson}}
--
-\rho_{\mathrm{Spearman}}
-\right|.
-$$
+$$\left|\rho_{\mathrm{Pearson}}-\rho_{\mathrm{Spearman}}\right|.$$
 
 A substantial difference between Pearson and Spearman correlations can indicate that the relationship is not well described by a simple linear relationship.
 
@@ -490,9 +473,7 @@ np.cov(
 
 The covariance matrix is partitioned as
 
-$$
-\Sigma =
-\begin{pmatrix}
+$$\Sigma =\begin{pmatrix}
 \sigma_{11} & \sigma_{12} \\
 \sigma_{21} & \sigma_{22}
 \end{pmatrix}.
@@ -500,68 +481,33 @@ $$
 
 Because $X_1$ and $X_2$ are scalars,
 
-$$
-\sigma_{11} = \mathrm{Var}(X_1),
-$$
+$$\sigma_{11} = \mathrm{Var}(X_1),$$
 
-$$
-\sigma_{22} = \mathrm{Var}(X_2),
-$$
+$$\sigma_{22} = \mathrm{Var}(X_2),$$
 
 and
 
-$$
-\sigma_{21}
-=
-\sigma_{12}
-=
-\mathrm{Cov}(X_2,X_1).
-$$
+$$\sigma_{21}=\sigma_{12}=\mathrm{Cov}(X_2,X_1).$$
 
 ## Conditional Expectation
 
 Under the joint Normal assumption,
 
-$$
-E[X_2 \mid X_1=x_1]
-=
-\mu_2
-+
-\frac{\sigma_{21}}{\sigma_{11}}
-(x_1-\mu_1).
-$$
+$$E[X_2 \mid X_1=x_1]=\mu_2+\frac{\sigma_{21}}{\sigma_{11}}(x_1-\mu_1).$$
 
 The conditional-expectation slope is therefore
 
-$$
-\beta_{\mathrm{cond}}
-=
-\frac{\sigma_{21}}{\sigma_{11}}.
-$$
+$$\beta_{\mathrm{cond}}=\frac{\sigma_{21}}{\sigma_{11}}.$$
 
 ## Conditional Variance
 
 Under the joint Normal assumption,
 
-$$
-\mathrm{Var}(X_2 \mid X_1)
-=
-\sigma_{22}
--
-\frac{\sigma_{21}\sigma_{12}}
-{\sigma_{11}}.
-$$
+$$\mathrm{Var}(X_2 \mid X_1)=\sigma_{22}-\frac{\sigma_{21}\sigma_{12}}{\sigma_{11}}.$$
 
 Since $X_1$ and $X_2$ are scalars, this is equivalent to
 
-$$
-\mathrm{Var}(X_2 \mid X_1)
-=
-\sigma_{22}
--
-\frac{\sigma_{21}^2}
-{\sigma_{11}}.
-$$
+$$\mathrm{Var}(X_2 \mid X_1)=\sigma_{22}-\frac{\sigma_{21}^2}{\sigma_{11}}.$$
 
 An important consequence is that the conditional variance does not depend on the value of $x_1$. Therefore, the resulting conditional band has constant width.
 
@@ -599,25 +545,14 @@ This allows the lines to be displayed continuously from low to high $x_1$, witho
 An observation is considered covered when
 
 $$
-\mathrm{lower}_i
-\leq
-x_{2,i}
-\leq
-\mathrm{upper}_i.
+\mathrm{lower}_i \leq x_{2,i} \leq \mathrm{upper}_i
 $$
 
 The overall coverage is the fraction of observations satisfying this condition.
 
 The code also calculates coverage by standardized distance from the sample mean of $x_1$:
 
-$$
-z_i
-=
-\left|
-\frac{x_{1,i}-\mu_1}
-{\mathrm{SD}(X_1)}
-\right|.
-$$
+$$z_i=\left|\frac{x_{1,i}-\mu_1}{\mathrm{SD}(X_1)}\right|.$$
 
 The three regions are
 
@@ -761,14 +696,7 @@ The constant-term convention is therefore consistent across the AR and MA models
 
 The corrected Akaike Information Criterion is calculated as
 
-$$
-\mathrm{AICc}
-=
-\mathrm{AIC}
-+
-\frac{2k(k+1)}
-{n-k-1}.
-$$
+$$\mathrm{AICc}=\mathrm{AIC}+\frac{2k(k+1)}{n-k-1}.$$
 
 The code uses the effective number of observations reported by the fitted model:
 
@@ -782,15 +710,11 @@ This matters for lagged models because the number of observations used in estima
 
 For the candidate models,
 
-$$
-k_{\mathrm{AR}(p)} = p + 2
-$$
+$$k_{\mathrm{AR}(p)} = p + 2$$
 
 and
 
-$$
-k_{\mathrm{MA}(q)} = q + 2.
-$$
+$$k_{\mathrm{MA}(q)} = q + 2.$$
 
 The model with the smallest AICc is preferred among the candidate models.
 
@@ -876,14 +800,7 @@ The following conventions are explicitly specified in the code to make the resul
 14. Problem 5 uses the fitted model's effective observation count for AICc.
 15. AICc is calculated consistently across competing models using
 
-$$
-\mathrm{AICc}
-=
-\mathrm{AIC}
-+
-\frac{2k(k+1)}
-{n-k-1}.
-$$
+$$\mathrm{AICc}=\mathrm{AIC}+\frac{2k(k+1)}{n-k-1}.$$
 
 ------------------------------------------------------------------------
 
